@@ -1,4 +1,4 @@
-import {View, Text, TextInput, Button, Alert} from 'react-native'
+import {View, Text, TextInput, Button, Alert, TouchableOpacity, StyleSheet} from 'react-native'
 import {useState} from 'react'
 
 import {entrar} from '../services/auth'
@@ -23,9 +23,10 @@ export default function Login({navigation}){
     }
 
     return(
-        <View>
-            <Text>Login</Text>
+        <View style={{alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={styles.text}>Login</Text>
             <TextInput
+            style={styles.Information}
                 placeholder='email'
                 value={email}
                 onChangeText={setEmail}
@@ -33,19 +34,46 @@ export default function Login({navigation}){
                 autoCapitalize='none'
             />
             <TextInput
+            style={styles.Information}
                 placeholder='senha'
                 value={senha}
                 onChangeText={setSenha}
                 secureTextEntry
             />
-            <Button
-                title='Acessar'
-                onPress={realizarLogin}
-            />
-            <Button
-                title='Criar uma conta'
-                onPress={()=>navigation.navigate('Cadastro')}
-            />
+            
+           <TouchableOpacity
+           style={styles.button}
+                onPress={realizarLogin}>
+                    <Text>Acessar conta</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+            style={styles.button}
+                onPress={()=>navigation.navigate('Cadastro')}>
+                    <Text>Criar conta</Text>
+            </TouchableOpacity>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    Information:{
+        backgroundColor: 'white', 
+        borderRadius: 5,
+        margin:10,
+        padding: 8,
+        width: '90%'
+      }, 
+      button:{
+        backgroundColor: 'lightblue', 
+        width: '50%',
+        height: 40, 
+        padding: 10, 
+        margin: 10, 
+        alignItems: 'center', 
+        justifyContent: 'center'
+      }, 
+      text:{
+        fontSize: 20, 
+        fontWeight: 'bold'
+      }
+        
+    })
