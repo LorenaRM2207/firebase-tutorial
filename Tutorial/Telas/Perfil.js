@@ -1,19 +1,15 @@
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import {sair} from '../services/auth'
-import {auth} from '../configuration/firebase'
+
 
 import { useFonts } from 'expo-font';
 import { Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold } from '@expo-google-fonts/manrope';
 //icones
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
-import Entypo from '@expo/vector-icons/Entypo';
-import Feather from '@expo/vector-icons/Feather';
 
 
 
-export default function Home(){
+export default function Perfil(){
     async function realizarLogout(){
         await sair();
         navigation.navigate('Login')
@@ -31,15 +27,9 @@ export default function Home(){
   const navigation = useNavigation()
     return(
         <View style={styles.screen}>
-            <View style={styles.container}>
+                    <View style={styles.container}>
             <Text>Seja bem-vindo(a)</Text>
-            <Text>Usuário: {auth.currentUser?.email}</Text>
-            <TouchableOpacity
-                onPress={realizarLogout}
-            >
-                <Text>Sair</Text>
-            </TouchableOpacity>
-            </View>
+        </View>
         </View>
     )
 }

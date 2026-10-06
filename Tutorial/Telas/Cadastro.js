@@ -1,4 +1,4 @@
-import {View, Text, TextInput, Button, Alert, StyleSheet, Style, TouchableOpacity} from 'react-native'
+import {View, Text, TextInput, Image, Button, Alert, StyleSheet, Style, TouchableOpacity} from 'react-native'
 import {useState} from 'react'
 
 import { cadastrar } from '../services/auth'
@@ -24,8 +24,17 @@ export default function Cadastro({navigation}){
     }
 
     return(
-        <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Text style={styles.text}>Cadastro</Text>
+        
+        <View style={styles.screen}>
+                     <View style={{alignItems: 'center', justifyContent: 'center'}}>
+                    <Text style={[styles.text, {marginTop:100}]}>Cadastro </Text>
+                    <Image 
+                  source={require('../assets/gato.png')}
+                  style={styles.image}
+                />
+                <Text style={styles.text2}>Crie sua conta e participe da nossa comunidade!</Text>
+         
+            
             <TextInput
             style={styles.Information}
                 placeholder='email'
@@ -48,31 +57,51 @@ export default function Cadastro({navigation}){
             </TouchableOpacity>
             <TouchableOpacity
             style={styles.button}
-                onPress={()=>navigation.navigate('Cadastro')}>
+                onPress={()=>navigation.navigate('Login')}>
                     <Text>Já tenho conta</Text>
             </TouchableOpacity>
+        </View>
         </View>
     )
 }
 const styles = StyleSheet.create({
 Information:{
-    backgroundColor: 'white', 
-    borderRadius: 5,
-    margin:10,
-    padding: 8,
-    width: '90%'
-  },
-  button:{
-    backgroundColor: 'lightblue', 
-    width: '50%',
-    height: 40, 
-    padding: 10, 
-    margin: 10, 
-    alignItems: 'center', 
-    justifyContent: 'center'
+        backgroundColor: 'white', 
+        borderRadius: 5,
+        margin:10,
+        padding: 8,
+        width: '90%'
+      }, 
+      button:{
+        backgroundColor: 'lightblue', 
+        width: '50%',
+        height: 40, 
+        padding: 10, 
+        margin: 10, 
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        borderRadius: 10
+      }, 
+      text:{
+        fontSize: 25, 
+        fontFamily: 'ManropeBold'
+      }, 
+      text2:{
+        fontSize: 20, 
+        fontFamily: 'ManropeBold', 
+        color: '#d17b2c', 
+        textAlign:'center', 
+        width: '70%'
+      },
+      screen: {
+    flex: 1,
+    backgroundColor: '#e6ddc4',
   }, 
-  text:{
-    fontSize: 20, 
-    fontWeight: 'bold'
-  }
+  image: {
+    width: 130, 
+    height: 160, 
+    marginTop: 30,
+    margin: 10
+  },
+
 })
