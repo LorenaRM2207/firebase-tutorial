@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NotificationProvider } from './services/NotificationContext'
 
 import Login from './Telas/Login'
 import Cadastro from './Telas/Cadastro'
@@ -75,7 +76,7 @@ function BottomTabs(){
 
 export default function App(){
   return(
-    
+    <NotificationProvider>
       <Stack.Navigator>
         <Stack.Screen
           name='Login'
@@ -99,6 +100,7 @@ export default function App(){
 }}
       />
       </Stack.Navigator>
+      </NotificationProvider>
    
   )
 }

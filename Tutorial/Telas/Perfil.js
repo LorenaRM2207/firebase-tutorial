@@ -1,6 +1,7 @@
 import { View, StyleSheet, TouchableOpacity, Text, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { sair } from '../services/auth'
+import { useNotificacoes } from '../services/NotificationContext'
 //fonte de aplicativo
 import { useFonts } from 'expo-font'
 import { Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold } from '@expo-google-fonts/manrope'
@@ -29,6 +30,7 @@ export default function Home() {
     return null
   }
   const navigation = useNavigation()
+  const { enviar } = useNotificacoes()
   return (
     //View principal
     <View style={styles.screen}>

@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { auth } from '../configuration/firebase'
+import { useNotificacoes } from '../services/NotificationContext'
 
 import { useFonts } from 'expo-font';
 import { Manrope_400Regular, Manrope_500Medium, Manrope_600SemiBold, Manrope_700Bold } from '@expo-google-fonts/manrope';
@@ -25,6 +26,7 @@ export default function Home() {
     return null
   }
   const navigation = useNavigation()
+  const { enviar } = useNotificacoes()
   return (
     <View style={styles.screen}>
       
@@ -68,7 +70,10 @@ export default function Home() {
       </View>
       {/* Opções 1-2 */}
        <View style={[styles.container, {flexDirection:'row'}]}>
-        <View style={styles.box}>
+        <TouchableOpacity 
+        style={styles.box}
+        onPress={() => enviar('agendamento', 'Banho marcado para amanhã às 14h')}
+        >
           <View style={[styles.columnsRow,{justifyContent:'center'}]}>
             {/* Icone */}
             <View style={{ paddingRight: 5, paddingLeft: 3 }}>
@@ -79,7 +84,7 @@ export default function Home() {
               <Text style={styles.title2}> Banho</Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
         <View style={styles.box}>
           <View style={[styles.columnsRow,{justifyContent:'center'}]}>
             {/* Icone */}
@@ -107,7 +112,10 @@ export default function Home() {
             </View>
           </View>
         </View>
-        <View style={styles.box}>
+        <TouchableOpacity 
+        style={styles.box}
+        onPress={() => enviar('promocao', '20% de desconto em ração até domingo!')}
+        >
           <View style={[styles.columnsRow,{justifyContent:'center'}]}>
             {/* Icone */}
             <View style={{ paddingRight: 2, paddingLeft: 2 }}>
@@ -118,7 +126,7 @@ export default function Home() {
               <Text style={styles.title2}> Compre</Text>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
       
 
