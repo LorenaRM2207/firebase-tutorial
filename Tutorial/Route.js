@@ -18,7 +18,7 @@ function BottomTabs(){
     //Rodapé - icones e nome
     <MyTabs.Navigator
       screenOptions={{
-        tabBarActiveTintColor: "#071739",
+        tabBarActiveTintColor: '#d17b2c',
         tabBarInactiveTintColor: '#A4B5C4',
         tabBarShowLabel: false,
         tabBarStyle: {
@@ -47,8 +47,8 @@ function BottomTabs(){
         component={Home}
         options={{
         headerShown: false,
-        tabBarIcon: ({ color, size }) =>
-          (<Ionicons name="home-sharp" size={size} color={color} />)
+        tabBarIcon: ({ color}) =>
+          (<Ionicons name="home-sharp" size={30} color={color} />)
         }}
       />
       <MyTabs.Screen
@@ -56,8 +56,8 @@ function BottomTabs(){
         component={Notification}
         options={{
         headerShown: false,
-        tabBarIcon: ({ color, size }) =>
-          (<Ionicons name="notifications" size={size} color={color} />)
+        tabBarIcon: ({ color }) =>
+          (<Ionicons name="notifications" size={35} color={color} />)
         }}
       />
       <MyTabs.Screen
@@ -65,8 +65,8 @@ function BottomTabs(){
         component={Perfil}
         options={{
         headerShown: false,
-        tabBarIcon: ({ color, size }) =>
-          (<FontAwesome5 name="user-alt" size={size} color={color} />)
+        tabBarIcon: ({ color}) =>
+          (<FontAwesome5 name="user-alt" size={30} color={color} />)
         }}
       />
     </MyTabs.Navigator>
